@@ -1,0 +1,7 @@
+com\demo\docsearch\model\SearchRequest.class
+com\demo\docsearch\service\EmbeddingService.class
+com\demo\docsearch\controller\SearchController.class
+com\demo\docsearch\service\SearchService.class
+com\demo\docsearch\model\SearchResult.class
+com\demo\docsearch\DocSearchApplication.class
+com\demo\docsearch\model\Document.class
