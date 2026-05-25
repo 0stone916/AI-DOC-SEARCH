@@ -1,4 +1,4 @@
-package com.demo.docsearch.service;
+﻿package com.demo.docsearch.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
@@ -28,7 +29,9 @@ public class EmbeddingService {
                 String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key="
                                 + apiKey;
 
-                log.info("[EMBED] 요청 텍스트: \"{}\"", text.substring(0, Math.min(30, text.length())));
+                String debugText =
+                                text != null ? text.substring(0, Math.min(30, text.length())) : "";
+                log.info("[EMBED] 임베딩 요청 시작: \"{}...\"", debugText);
 
                 Map<String, Object> body = Map.of("model", "models/gemini-embedding-001", "content",
                                 Map.of("parts", List.of(Map.of("text", text))));
@@ -36,20 +39,35 @@ public class EmbeddingService {
                 HttpHeaders headers = new HttpHeaders();
                 headers.setContentType(MediaType.APPLICATION_JSON);
 
-                ResponseEntity<String> response = restTemplate.postForEntity(url,
-                                new HttpEntity<>(body, headers), String.class);
+                try {
+                        ResponseEntity<String> response = restTemplate.postForEntity(url,
+                                        new HttpEntity<>(body, headers), String.class);
 
-                JsonNode values = objectMapper.readTree(response.getBody()).path("embedding")
-                                .path("values");
+                        JsonNode root = objectMapper.readTree(response.getBody());
+                        JsonNode values = root.path("embedding").path("values");
 
-                double[] embedding = new double[values.size()];
-                for (int i = 0; i < values.size(); i++) {
-                        embedding[i] = values.get(i).asDouble();
+                        if (values.isMissingNode() || values.size() == 0) {
+                                log.error("[EMBED] API 응답에 임베딩 값이 없습니다: {}", response.getBody());
+                                throw new IOException(
+                                                "Failed to get embedding values from API response");
+                        }
+
+                        double[] embedding = new double[values.size()];
+                        for (int i = 0; i < values.size(); i++) {
+                                embedding[i] = values.get(i).asDouble();
+                        }
+
+                        log.info("[EMBED] 임베딩 성공! 차원 수: {}", embedding.length);
+                        return embedding;
+
+                } catch (HttpStatusCodeException e) {
+                        log.error("[EMBED] API 호출 실패: {} {} - 응답 바디: {}", e.getStatusCode(),
+                                        e.getStatusText(), e.getResponseBodyAsString());
+                        throw new IOException("Gemini API Embedding Error: "
+                                        + e.getResponseBodyAsString(), e);
+                } catch (Exception e) {
+                        log.error("[EMBED] 예기치 못한 에러 발생: ", e);
+                        throw new IOException("Unexpected error during embedding", e);
                 }
-                log.info("[EMBED] 응답 임베딩 차원: {}, 앞 3값: [{}, {}, {}]", embedding.length,
-                                String.format("%.4f", embedding.length > 0 ? embedding[0] : 0),
-                                String.format("%.4f", embedding.length > 1 ? embedding[1] : 0),
-                                String.format("%.4f", embedding.length > 2 ? embedding[2] : 0));
-                return embedding;
         }
 }
