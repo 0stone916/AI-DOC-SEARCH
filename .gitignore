@@ -1,0 +1,13 @@
+target/
+/build/
+*.class
+
+# 확장자 무시를 원하셨다면 앞에 *를 붙여주세요
+*.md
+
+.vscode/
+.claude/
+*.env
+CLAUDE.md
+.ignore
+.gitignore
