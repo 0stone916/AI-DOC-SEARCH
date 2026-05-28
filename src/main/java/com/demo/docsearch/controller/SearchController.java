@@ -1,4 +1,4 @@
-﻿package com.demo.docsearch.controller;
+package com.demo.docsearch.controller;
 
 import com.demo.docsearch.model.SearchRequest;
 import com.demo.docsearch.model.SearchResult;
@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -31,10 +30,9 @@ public class SearchController {
             String answer = searchService.askQuestion(question);
             return ResponseEntity.ok(Map.of("answer", answer));
         } catch (Exception e) {
-            log.error("[CHAT] 요청 처리 중 에러 발생: {}", question, e);
-            String errorMessage = "에러가 발생했습니다: " + e.getMessage();
+            log.error("[CHAT] 오류 발생", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(Map.of("answer", errorMessage, "error", "true"));
+                    .body(Map.of("answer", "죄송합니다. 처리 중 오류가 발생했습니다.", "error", "true"));
         }
     }
 
@@ -46,8 +44,11 @@ public class SearchController {
             return ResponseEntity
                     .ok(Map.of("query", request.getQuery(), "semantic", semantic, "like", like));
         } catch (Exception e) {
-            log.error("[SEARCH] 검색 중 에러 발생: {}", request.getQuery(), e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            log.error("[SEARCH] 검색 중 오류 발생", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", "검색 처리 중 오류가 발생했습니다."));
         }
     }
 }
+
+
