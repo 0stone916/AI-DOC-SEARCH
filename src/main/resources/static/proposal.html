@@ -28,10 +28,10 @@
         </h1>
         <p class="text-gray-300 text-lg max-w-2xl leading-relaxed mb-10">
             Google Workspace 기반 결재 워크플로우에 Gemini AI와 Vertex AI를 결합하면,
-            문서 탐색부터 기안 전 오류 검토까지 결재 전 과정을 지능화할 수 있습니다.
+            문서 탐색부터 결재선 추천, 리스크 감지까지 결재 전 과정을 지능화할 수 있습니다.
         </p>
         <div class="flex flex-wrap gap-4">
-            <a href="/demo.html"
+            <a href="/index.html"
                class="bg-blue-500 hover:bg-blue-400 text-white font-semibold px-6 py-3 rounded-lg transition flex items-center gap-2">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
@@ -54,7 +54,7 @@
             <span class="text-blue-600 text-sm font-semibold tracking-wider uppercase">Current Pain Points</span>
             <h2 class="text-2xl font-bold text-gray-900 mt-2">지금 결재 시스템이 해결 못하는 것들</h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-red-50 border border-red-100 rounded-xl p-6">
                 <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mb-4">
                     <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,13 +70,25 @@
             <div class="bg-orange-50 border border-orange-100 rounded-xl p-6">
                 <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                     <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
                     </svg>
                 </div>
-                <h3 class="font-bold text-gray-800 mb-2">기안 오류를 직접 검토해야</h3>
+                <h3 class="font-bold text-gray-800 mb-2">결재선은 매번 수동 설정</h3>
                 <p class="text-sm text-gray-500 leading-relaxed">
-                    결재 요청 전 오타·법적 리스크를 기안자가 직접 확인해야 함.
-                    놓치면 반려 반복 또는 실제 손실로 이어질 수 있음.
+                    문서 종류·금액·부서별로 결재선이 달라지지만 매번 기안자가 직접 선택.
+                    잘못 설정하면 반려·재기안 반복으로 처리 지연.
+                </p>
+            </div>
+            <div class="bg-yellow-50 border border-yellow-100 rounded-xl p-6">
+                <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-gray-800 mb-2">긴 문서를 처음부터 읽어야</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">
+                    계약서·품의서 검토 시 수십 페이지를 전부 확인해야 핵심 조항 파악 가능.
+                    결재자의 검토 시간이 문서 처리 병목이 됨.
                 </p>
             </div>
         </div>
@@ -88,12 +100,12 @@
     <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-12">
             <span class="text-blue-600 text-sm font-semibold tracking-wider uppercase">AI Solutions</span>
-            <h2 class="text-2xl font-bold text-gray-900 mt-2">제안하는 2가지 AI 기능</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mt-2">제안하는 4가지 AI 기능</h2>
         </div>
 
         <div class="space-y-6">
 
-            <!-- 기능 1: 시맨틱 문서 검색 -->
+            <!-- 기능 1 -->
             <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover">
                 <div class="flex flex-col md:flex-row gap-6">
                     <div class="flex-shrink-0">
@@ -110,7 +122,6 @@
                         </div>
                         <p class="text-gray-500 text-sm leading-relaxed mb-4">
                             단어가 달라도 의미가 같으면 찾아주는 검색. "비용 처리", "돈 쓴 내역", "지출 품의" 모두 같은 문서를 반환.
-                            Vertex AI text-embedding-004로 문서를 벡터화하고, Gemini RAG로 자연어 질문에 답변.
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <span class="badge-vertex text-xs font-semibold px-2.5 py-1 rounded-full">Vertex AI Embeddings</span>
@@ -119,7 +130,7 @@
                         </div>
                     </div>
                     <div class="flex-shrink-0 flex items-center">
-                        <a href="/demo.html" class="text-blue-600 hover:text-blue-700 text-sm font-semibold flex items-center gap-1 whitespace-nowrap">
+                        <a href="/index.html" class="text-blue-600 hover:text-blue-700 text-sm font-semibold flex items-center gap-1 whitespace-nowrap">
                             데모 보기
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -129,29 +140,83 @@
                 </div>
             </div>
 
-            <!-- 기능 2: 기안 전 오타/리스크 감지 -->
+            <!-- 기능 2 -->
             <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover">
                 <div class="flex flex-col md:flex-row gap-6">
                     <div class="flex-shrink-0">
-                        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
+                        <div class="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center">
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
                             </svg>
                         </div>
                     </div>
                     <div class="flex-1">
                         <div class="flex items-center gap-3 mb-2 flex-wrap">
-                            <h3 class="text-lg font-bold text-gray-900">기안 전 AI 오타 · 리스크 감지</h3>
+                            <h3 class="text-lg font-bold text-gray-900">AI 결재선 자동 추천</h3>
+                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-0.5 rounded-full">구현 가능</span>
+                        </div>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                            문서 제목·내용·금액·부서를 Gemini가 분석해 과거 승인 패턴 기반으로 결재선을 추천.
+                            "500만원 이상 구매품의는 팀장→본부장→CFO" 같은 규칙을 학습 없이 프롬프트로 설정 가능.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge-gemini text-xs font-semibold px-2.5 py-1 rounded-full">Gemini 2.5 Flash</span>
+                            <span class="badge-gcp text-xs font-semibold px-2.5 py-1 rounded-full">Collavate Workflow API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 기능 3 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-2 flex-wrap">
+                            <h3 class="text-lg font-bold text-gray-900">문서 자동 요약 & 리스크 감지</h3>
                             <span class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-0.5 rounded-full">구현 가능</span>
                         </div>
                         <p class="text-gray-500 text-sm leading-relaxed mb-4">
-                            결재 요청 버튼을 누르기 전, Gemini가 기안 내용을 분석해 오타·치·법적 리스크 조항을 자동으로 감지.
-                            "위약금 조항이 과도합니다", "날짜 오기입 가능성" 등을 하이라이트해 반려율을 낮추고 손실을 예방.
+                            결재 요청 시 Gemini가 문서를 3줄 요약하고, 비정상 조항(과도한 위약금·자동갱신·면책 조항 등)을 자동 감지해 결재자에게 하이라이트.
+                            수십 페이지 계약서를 30초 안에 검토 가능.
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <span class="badge-gemini text-xs font-semibold px-2.5 py-1 rounded-full">Gemini 2.5 Flash</span>
                             <span class="badge-gcp text-xs font-semibold px-2.5 py-1 rounded-full">Cloud Run</span>
-                            <span class="badge-gcp text-xs font-semibold px-2.5 py-1 rounded-full">Collavate Workflow API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 기능 4 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-teal-600 rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-2 flex-wrap">
+                            <h3 class="text-lg font-bold text-gray-900">AI 기안 어시스턴트</h3>
+                            <span class="bg-teal-100 text-teal-700 text-xs font-bold px-2 py-0.5 rounded-full">구현 가능</span>
+                        </div>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                            "해외 출장 품의서 작성해줘"라고 입력하면 Gemini가 과거 승인된 유사 문서를 참고해 초안 생성.
+                            기안자의 작성 시간을 줄이고 반려율 감소.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge-gemini text-xs font-semibold px-2.5 py-1 rounded-full">Gemini 2.5 Flash</span>
+                            <span class="badge-vertex text-xs font-semibold px-2.5 py-1 rounded-full">Vertex AI Search</span>
+                            <span class="badge-gcp text-xs font-semibold px-2.5 py-1 rounded-full">Google Workspace</span>
                         </div>
                     </div>
                 </div>
@@ -182,15 +247,27 @@
                 </div>
             </div>
 
-            <div class="flex gap-5">
-                <div class="flex-shrink-0 w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">2</div>
-                <div>
+            <div class="flex gap-5 relative phase-line">
+                <div class="flex-shrink-0 w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">2</div>
+                <div class="pb-8">
                     <div class="flex items-center gap-3 mb-1">
                         <h3 class="font-bold text-gray-900">1~2개월</h3>
-                        <span class="bg-orange-100 text-orange-700 text-xs font-semibold px-2 py-0.5 rounded-full">단기</span>
+                        <span class="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-0.5 rounded-full">단기</span>
                     </div>
-                    <p class="text-sm text-gray-500 mb-2">기안 전 오타 · 리스크 감지</p>
-                    <p class="text-xs text-gray-400">기존 Gemini 연동 파이프라인 위에 결재 요청 전 검토 레이어 추가. Collavate Workflow API 연동으로 기안 화면에 바로 통합 가능.</p>
+                    <p class="text-sm text-gray-500 mb-2">결재선 자동 추천 + 문서 자동 요약</p>
+                    <p class="text-xs text-gray-400">기존 Gemini 연동 파이프라인 위에 추가 기능으로 확장. Collavate API 연동 필요.</p>
+                </div>
+            </div>
+
+            <div class="flex gap-5">
+                <div class="flex-shrink-0 w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">3</div>
+                <div>
+                    <div class="flex items-center gap-3 mb-1">
+                        <h3 class="font-bold text-gray-900">3~6개월</h3>
+                        <span class="bg-teal-100 text-teal-700 text-xs font-semibold px-2 py-0.5 rounded-full">중기</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-2">AI 기안 어시스턴트 + 리스크 감지 고도화</p>
+                    <p class="text-xs text-gray-400">승인 이력 데이터 축적 후 파인튜닝 또는 Few-shot 프롬프트 고도화. ISMS-P 대응 보안 레이어 적용.</p>
                 </div>
             </div>
 
@@ -218,7 +295,7 @@
     <div class="max-w-5xl mx-auto px-6 text-center">
         <h2 class="text-2xl font-bold text-white mb-4">직접 체험해보세요</h2>
         <p class="text-gray-300 mb-8 text-sm">실제 문서를 Google Drive에 연동한 시맨틱 검색 + RAG 챗봇 데모입니다.</p>
-        <a href="/demo.html"
+        <a href="/index.html"
            class="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold px-8 py-4 rounded-xl transition text-sm">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
